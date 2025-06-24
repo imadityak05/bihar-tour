@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Navbar.css";
+import "./navBar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { places } from "../../data/places"; // List of places
 import { FaBars, FaTimes } from "react-icons/fa"; // Hamburger and close icons
