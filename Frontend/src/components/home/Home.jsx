@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 
 import slide1 from "../../assets/Bihar3.jpg";
-import slide2 from "../../assets/Nalanda.jpg";
+import slide2 from "../../assets/nalanda.jpg";
 import slide3 from "../../assets/Bihar3.jpg";
 import slide6 from "../../assets/Patna.jpg";
 import slide5 from "../../assets/Bihar5.jpg";
