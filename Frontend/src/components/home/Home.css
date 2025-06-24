@@ -1,0 +1,335 @@
+/* ===================================================
+   Home Page Styles
+================================================== */
+
+.home {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    font-family: "Inter", sans-serif;
+}
+
+.home-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -1;
+
+    animation: backgroundMove 30s ease-in-out infinite alternate;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 1));
+    pointer-events: none;
+
+    animation: overlayFade 5s ease-in-out infinite alternate;
+}
+
+/* ===================================================
+   Title Styles
+================================================== */
+.title {
+    position: absolute;
+
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+.title h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    letter-spacing: 15px;
+
+    color: #fff;
+
+    animation: bottomInText 1s ease-out forwards;
+}
+
+.title h1 {
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: 800;
+
+    letter-spacing: 1rem;
+
+    text-transform: uppercase;
+
+    color: #fff;
+
+    animation: bottomInText 1.2s ease-out forwards;
+
+    margin: -20px 0;
+}
+
+/* ===================================================
+   Info Paragraph
+================================================== */
+.info-wrap {
+    position: absolute;
+
+    bottom: 18%;
+    left: 50%;
+
+    transform: translateX(-50%);
+    width: 80%;
+
+    display: flex;
+
+    justify-content: center;
+
+    z-index: 1;
+}
+
+.info-wrap p {
+    font-size: 14px;
+
+    font-weight: 300;
+
+    letter-spacing: 1px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    text-align: center;
+
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+    animation: bottomInText 1.2s ease-out forwards;
+
+    animation-delay: 0.2s;
+
+    opacity: 0;
+}
+
+/* ===================================================
+   CTA Button
+================================================== */
+.cta {
+    position: absolute;
+
+    bottom: 8%;
+    left: 50%;
+
+    transform: translateX(-50%);
+    display: flex;
+
+    justify-content: center;
+
+    z-index: 1;
+}
+
+.cta button {
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    background-color: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 50px;
+
+    height: 50px;
+
+    width: 300px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: all 0.2s;
+
+    cursor: pointer;
+
+    animation: bottomInText 1.2s ease-out forwards;
+
+    animation-delay: 0.3s;
+
+    opacity: 0;
+}
+
+.cta button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+
+    color: #353535;
+}
+
+/* ===================================================
+   Slider Arrows
+================================================== */
+.slider {
+    position: absolute;
+
+    top: 50%;
+
+    left: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 0 2%;
+
+    width: 100%;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation: zoomOut 1.2s ease-out forwards;
+}
+
+.slider svg {
+    font-size: 48px;
+
+    padding: 12px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: background-color 0.3s ease, transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.slider svg:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #16423c;
+
+    transform: scale(1.15);
+}
+
+.slider svg:active {
+    transform: scale(0.95);
+}
+
+/* ===================================================
+   Swipe Hint
+================================================== */
+.swipe-hint {
+    position: absolute;
+
+    bottom: 3%;
+
+    left: 3%;
+
+    font-size: 14px;
+
+    font-style: italic;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    pointer-events: none;
+
+    animation: hintFadeInOut 3s ease-in-out infinite;
+
+    z-index: 2;
+}
+
+/* ===================================================
+   Animations
+================================================== */
+@keyframes bottomInText {
+    from {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundMove {
+    from {
+        background-position: center top;
+    }
+
+    to {
+        background-position: center 20%;
+    }
+}
+
+@keyframes overlayFade {
+    from {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes hintFadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
